@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inclusão</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="Imagens/logo.png">
 </head>
 <body>
     <header>
@@ -15,14 +16,15 @@
     <!-- Botões Pílula -->
     <button class="pill-button">
       <span>Início</span>
-      <span>Inclusão</span>
+      <span><a href="inclusao.html" target="_blank">Inclusão</a></span>
       <span>Sobre Nós</span>
     </button>
 
     <!-- Barra de Pesquisa -->
     <div class="search-container">
-      <input type="text" class="search-input" placeholder="Pesquisar...">
-      <img src="img/pesquisa.png" alt="Pesquisar" class="search-img">
+      <input type="text" class="search-input" placeholder="Pesquisar..." id="pesquisa">
+      <ul id="sugestoes" class="lista-sugestoes"></ul>
+      <img src="Imagens/pesquisa.png" alt="Pesquisar" class="search-img">
 
     </div>
 
@@ -35,25 +37,39 @@
   </div>
     </header>
 
+    <div class="imagem-container">
+        <img src="Imagens/Pessoas.jpg" alt="Imagem" class="img-fundo">
+
+        <div class="caixa-info" id="card">
+        <h1>A comunidade surda</h1>
+        <p>Conheça as lutas, conquistas e a importância da Libras na construção de uma sociedade mais inclusiva. Explore conteúdos que valorizam a identidade surda e entenda como cada passo dessa trajetória contribuiu para garantir direitos, acessibilidade e respeito.</p>
+        </div>
+    </div>
+
+    <main>
     <section class="historia">
-        <div class="tudo">
         <div class="texto">
         <h1>Conheça a História da Comunidade Surda</h1>
         <p>Explore as lutas, conquistas e a importância da Libras na construção de uma sociedade mais inclusiva.</p>
-        <button type="button">Iniciar Jornada</button>
+        <button type="button" class="botao">Iniciar Jornada</button> <!-- quando clicar no botão vai pra outra página, mostrando todas as informações  -->
         </div>
         <img class="comunidade" src="Imagens/comunidade.png" alt="Imagem que representa a comunidade surda.">
-        </div>
     </section>
 
-    <section class="jornada">
-        <div class="linhaDoTempo">
-            <h2>Jornada do Conhecimento</h2>
-            <span>Antiguidade</span>
-            <span>Renascimento</span>
-            <span>Direitos</span>
-            <span>Calendário</span>
-            <span>Libras</span>
+    <section class="linhaDoTempo">
+    <h2>Jornada do Conhecimento</h2>
+    <div class="timeline">
+        <div class="etapa"><span class="ponto"></span><p>Antiguidade</p></div>
+        <div class="etapa"><span class="ponto"></span><p>Renascimento</p></div>
+        <div class="etapa"><span class="ponto"></span><p>Direitos</p></div>
+        <div class="etapa"><span class="ponto"></span><p>Calendário</p></div>
+        <div class="etapa"><span class="ponto"></span><p>Libras</p></div>
+    </div>
+        <div id="modalAccordion" class="modal-accordion">
+            <span id="fecharModal" style="float:right; cursor:pointer; font-size:24px;">&times;</span>
+            <h3 id="modalTitulo">Título</h3>
+            <p id="modalTexto">Texto explicativo...</p>
+            <button id="proximo" class="botao-proximo">&gt;</button>
         </div>
     </section>
 
@@ -78,19 +94,19 @@
             <div class="um">
                 <img class="inclusao" src="Imagens/inclusao.png" alt="Cidadania e Acessibilidade">
                 <p>Cidadania e Acessibilidade</p>
-                <button type="button">Saiba Mais</button>
+                <button type="button" class="botao">Saiba Mais</button> <!-- quando clicar no botão vai pra outra página, mostrando todas as informações  -->
             </div>
 
             <div class="dois">
-                <img class="informacao" src="Imagens/informacao.png" alt="Acesso à Informação">
-                <p>Acesso à Informação</p>
-                <button type="button">Saiba Mais</button>
-            </div>
+                    <img class="informacao" src="Imagens/informacao.png" alt="Acesso à Informação">
+                    <p>Acesso à Informação</p>
+                    <button type="button" class="botao">Saiba Mais</button> <!-- quando clicar no botão vai pra outra página, mostrando todas as informações  -->
+            </div> 
 
             <div class="tres">
                 <img class="saude" src="Imagens/saude.png" alt="Saúde">
                 <p>Saúde</p>
-                <button type="button">Saiba Mais</button>
+                <button type="button" class="botao">Saiba Mais</button> <!-- quando clicar no botão vai pra outra página, mostrando todas as informações  -->
             </div>
         </div>
     </section>
@@ -99,10 +115,12 @@
         <div class="texto2">
         <h1>Baixe nosso aplicativo de acessibilidade</h1>
         <p>Com o nosso aplicativo você consegue se comunicar de forma mais inclusiva e intuitiva com pessoas que possuem deficiência auditiva.</p>
-        <button><img class="icone" src="Imagens/phoneIcon.png" alt="Baixar aplicativo">Baixar Aplicativo</button>
+        <button type="button" class="botao"><img class="icone" src="Imagens/phoneIcon.png" alt="Baixar aplicativo">Baixar Aplicativo</button> <!-- quando clicar no botão vai pra outra página, mostrando todas as informações  -->
         </div>
-
         <img class="baixar" src="Imagens/baixeOApp.png" alt="Baixar aplicativo">
     </section>
+    </main> 
+
+    <script src="script.js"></script>
 </body>
 </html>
