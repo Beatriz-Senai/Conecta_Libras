@@ -14,22 +14,28 @@
     }
 
     main {
-      margin-left: 80px;
-      margin-right: 80px;
+      margin-left: 60px;
+      margin-right: 60px;
     }
 
     header {
         font-family: sanchez;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        width: 100%;
     }
 
     .navbar {
-      background-color: #04334C;
+      background-color: rgb(4, 51, 76, 0.6);
       padding: 15px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
 
     .logo {
@@ -128,13 +134,14 @@
 h1 {
     /* border: black 2px solid; */
     font-family: gliker;
-    font-size: 50px;
+    font-size: 60px;
     margin: 0px;
     padding: 0px;
     width: 550px;
     color: #063f5c;
     margin-top: 10px;
     margin-bottom: 10px;
+    font-weight: 200;
 }
 
 h2 {
@@ -143,6 +150,8 @@ h2 {
     padding: 0px;
     margin-top: 10px;
     margin-bottom: 10px;
+    font-weight: 200;
+    color: #04334C;
 }
 
 h3 {
@@ -151,33 +160,42 @@ h3 {
     padding: 0px;
     margin-top: 10px;
     margin-bottom: 10px;
+    font-weight: 200;
 }
 
 p {
     font-family: sanchez;
-    font-size: 25px;
+    font-size: 35px;
     margin: 0px;
     padding: 0px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-button {
+.botao {
     background-color: #febd1e;
     color: white;
     border: none;
-    border-radius: 15px;
-    width: 160px;
-    height: 40px;
+    border-radius: 25px;
+    width: 180px;
+    height: 60px;
     font-size: 20px;
     margin-top: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.tudo {
+.botao:hover {
+  background-color: #01283C; /* nova cor */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.historia {
   display: flex;
   align-items: center;   /* alinha verticalmente */
   justify-content: space-between; /* espaço entre texto e imagem */
-  margin-top: 60px;
+  margin-top: 10px;
   gap: 40px; /* espaço entre elementos */
 }
 
@@ -186,44 +204,77 @@ button {
 }
 
 .comunidade {
-  width: 400px;
+  width: 600px;
   height: auto;
 }
 
-.tudo {
+.historia {
   display: flex;
 
 }
 
 .linhaDoTempo {
+  background-color: #063f5c;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 40px 0;
+  color: white;
+}
+
+.linhaDoTempo h2 {
+  font-family: gliker;
+  font-size: 28px;
+  margin-bottom: 40px; /* espaço entre título e linha */
+  color: white;
+  text-align: left; /* título à esquerda */
+}
+
+/* Container da linha */
+.timeline {
+  position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin: 40px 0;
-  padding: 15px 20px;
-  background-color: #f0f7fb;
-  border-radius: 12px;
+  align-items: flex-start;
 }
 
-.linhaDoTempo span {
-  font-family: gliker;
-  font-size: 18px;
-  color: #063f5c;
-  position: relative;
-}
-
-.linhaDoTempo span::after {
-  content: '';
+/* Linha contínua */
+.timeline::before {
+  content: "";
   position: absolute;
+  top: 10px; /* altura da linha */
+  left: 0;
+  right: 0;
   height: 3px;
-  width: 40px;
-  background-color: #063f5c;
-  top: 50%;
-  left: calc(100% + 10px);
+  background-color: white;
+  z-index: 1;
 }
 
-.linhaDoTempo span:last-child::after {
-  display: none;
+/* Cada etapa */
+.etapa {
+  text-align: center;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+/* Bolinhas */
+.ponto {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  top: 0; /* fixa a bolinha em cima da linha */
+}
+
+/* Textos abaixo */
+.etapa p {
+  margin-top: 25px; /* empurra texto para baixo da linha */
+  font-family: sanchez;
+  font-size: 16px;
+  color: white;
 }
 
 .tudo2 {
@@ -243,12 +294,16 @@ button {
   transition: transform 0.2s ease;
 }
 
+.tudo2 p {
+  font-size: 35px;
+}
+
 .tudo2 div:hover {
   transform: translateY(-5px);
 }
 
 .tudo2 img {
-  width: 120px;
+  width: 200px;
   height: auto;
   margin-bottom: 15px;
 }
@@ -262,11 +317,19 @@ button {
 }
 
 .texto2 {
-  max-width: 500px;
+  max-width: 700px;
+}
+
+.texto2 h1 {
+  width: 800px;
+}
+
+.texto2 p {
+  width: 800px;
 }
 
 .aplicativo .baixar {
-  width: 300px;
+  width: 600px;
   height: auto;
 }
 
@@ -282,7 +345,7 @@ button {
     margin: 20px;
   }
 
-  .tudo, .aplicativo, .tudo2 {
+  .historia, .aplicativo, .tudo2 {
     flex-direction: column;
     text-align: center;
   }
@@ -300,4 +363,96 @@ button {
   .linhaDoTempo span::after {
     display: none;
   }
+}
+
+.importancia {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 30px;
+  margin-top: 40px;
+  font-family: sanchez;
+}
+
+/* Blocos */
+.importancia .porque,
+.importancia .lista {
+  background-color: #EDEDED;
+  border-radius: 25px;
+  padding: 40px 50px;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+/* Texto do lado esquerdo */
+.importancia .porque h3 {
+  color: #063f5c;
+  font-family: gliker;
+  font-size: 22px;
+}
+
+.importancia .porque p {
+  font-family: sanchez;
+  font-size: 22px;
+  color: black;
+}
+
+.importancia .lista {
+  background-color: #EDEDED;
+  border-radius: 25px;
+  padding: 40px 50px;
+  flex: 1;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start; /* alinha todo o conteúdo à esquerda */
+  align-items: center;
+}
+
+.importancia .lista ul {
+  list-style-type: disc;
+  font-family: sanchez;
+  font-size: 22px;
+  color: black;
+  margin: 0;
+  padding-left: 40px;
+  text-align: left; /* garante alinhamento à esquerda */
+}
+
+.direitos h2{
+  margin-top: 40px;
+}
+
+.baixar {
+  width: 5px;
+}
+
+.aplicativo button {
+  width: 220px;
+}
+
+.icone {
+  width: 30px;
+}
+
+.dois p,
+.tres p {
+    margin-top: 33px; 
+}
+
+.dois .botao,
+.tres .botao {
+    margin-top: 33px;
+}
+
+.pessoas {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* garante que a imagem preencha o container */
+}
+
+.container {
+  width: 100%;
+  height: 900px; /* altura visível */
+  overflow: hidden; /* esconde o resto da imagem */
+  border-radius: 10px;
 }
