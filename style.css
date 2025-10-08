@@ -127,6 +127,19 @@
       border-radius: 50px;
     }
 
+    .pill-button a {
+      color: #FFBE1D;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      transition: background-color 0.3s ease;
+      white-space: nowrap;
+      border-radius: 50px;
+      text-decoration: none;
+    }
+
     .pill-button span:hover {
       background-color: #01283C;
     }
@@ -237,16 +250,28 @@ p {
   align-items: flex-start;
 }
 
+.timeline-progress {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(to right, #00ff00, #00aa00);
+  z-index: 2;
+  transition: width 0.5s ease;
+  width: 0%;
+}
+
 /* Linha contínua */
 .timeline::before {
   content: "";
   position: absolute;
-  top: 10px; /* altura da linha */
+  top: 10px;
   left: 0;
   right: 0;
   height: 3px;
-  background-color: white;
+  background-color: #ccc; /* cor base da linha */
   z-index: 1;
+  transition: background 0.5s ease;
 }
 
 /* Cada etapa */
@@ -254,7 +279,12 @@ p {
   text-align: center;
   flex: 1;
   position: relative;
-  z-index: 2;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.etapa.ativo .ponto {
+  background-color: #00ff00; /* verde para concluído */
 }
 
 /* Bolinhas */
@@ -444,15 +474,102 @@ p {
     margin-top: 33px;
 }
 
-.pessoas {
+.imagem-container {
+  position: relative;
   width: 100%;
-  height: auto;
-  object-fit: cover; /* garante que a imagem preencha o container */
+  height: 900px;
+  overflow: hidden;
 }
 
-.container {
+.img-fundo {
   width: 100%;
-  height: 900px; /* altura visível */
-  overflow: hidden; /* esconde o resto da imagem */
-  border-radius: 10px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caixa-info {
+  position: absolute;
+  bottom: 200px;
+  left: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 20px 30px;
+  border-radius: 15px;
+  max-width: 600px;
+  height: 300px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transform-style: preserve-3d;
+}
+
+.caixa-info p {
+  font-size: 20px;
+  font-weight: 900;
+  color: white;
+}
+
+.caixa-info h1 {
+  color: white;
+}
+
+/* Cursor pointer nos pontos da timeline */
+.etapa {
+  cursor: pointer;
+}
+
+/* Modal estilo accordion abaixo da linha do tempo */
+.modal-accordion {
+  max-height: 0; /* altura inicial */
+  background-color: #063f5c; /* azul da linha do tempo */
+  color: white;
+  border-radius: 15px;
+  padding: 0 20px; /* padding horizontal */
+  margin-top: 20px;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+}
+
+/* Quando aberto */
+.modal-accordion.ativo {
+  max-height: 400px; /* ajuste conforme a necessidade */
+  padding: 30px 20px; /* padding vertical + horizontal */
+  opacity: 1;
+  transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+}
+
+/* Título do modal */
+.modal-accordion h3 {
+  font-family: gliker;
+  margin-bottom: 15px;
+}
+
+/* Texto do modal */
+.modal-accordion p {
+  font-family: sanchez;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Botão fechar X */
+.modal-accordion #fecharModal {
+  float: right;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.botao-proximo {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  background-color: #febd1e;
+  color: white;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.botao-proximo:hover {
+  background-color: #01283C;
 }
